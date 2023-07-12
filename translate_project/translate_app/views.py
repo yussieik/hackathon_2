@@ -66,6 +66,7 @@ def stat_view(request):
 
         # create scores dictionary
         scores = {}
+        print("from", from_langs)
         for from_lang in from_langs:
             scores[from_lang] = {}  # {'en': {}, 'he': {}, 'ru': {}}
 
@@ -84,9 +85,9 @@ def stat_view(request):
                     scores[from_lang][to_lang]['percentage'] = round(known_count / (known_count + unknown_count) * 100)
 
                     # difficulty
-                    hardest_num = all_words.aggregate(min_value=Min('difficulty'))['min_value']
+                    hardest_num = all_words.filter(qlanguage=from_lang, alanguage=to_lang).aggregate(min_value=Min('difficulty'))['min_value']
                     hardest_word = convert_difficulty(str(hardest_num))
-                    print(hardest_word)
+                    print(from_lang, to_lang, hardest_word)
                     scores[from_lang][to_lang]['hardest'] = hardest_word
 
         scores = replace_keys_and_values(scores, conversion)
@@ -112,13 +113,15 @@ def replace_keys_and_values(data, conversion):
 # convert number difficulty to words:
 def convert_difficulty(number):
     number_conversion = {
-        "7": "Super Easy",
-        "6": "Easy",
-        "5": "Medium",
-        "4": "Hard",
-        "3": "Expert",
-        "2": "Insane",
-        "1": "Word Master"}
+    "8": "Super Easy",
+    "7": "Easy",
+    "6": "Medium",
+    "5": "Tough",
+    "4": "Hard",
+    "3": "Expert",
+    "2": "Insane",
+    "1": "Word Master"
+}
     return number_conversion[number]
 
 def create_word(request):

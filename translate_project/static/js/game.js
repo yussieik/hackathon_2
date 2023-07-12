@@ -1,3 +1,5 @@
+
+
 // API data
 const url = 'https://wordsapiv1.p.rapidapi.com/words/?random=true';
 const options = {
@@ -17,9 +19,10 @@ let DIFFICULTY = 7;
 let POINTS = 0;
 
 const LEVELS = {
-    "7": "Super Easy",
-    "6": "Easy",
-    "5": "Medium",
+    "8": "Super Easy",
+    "7": "Easy",
+    "6": "Medium",
+    "5": "Tough",
     "4": "Hard",
     "3": "Expert",
     "2": "Insane",

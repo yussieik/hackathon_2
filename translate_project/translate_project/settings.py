@@ -1,8 +1,14 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
-
+AZURE_KEY1 = os.getenv('AZURE_KEY1');
+AZURE_KEY2 = os.getenv('AZURE_KEY2');
+AZURE_REGION = os.getenv('AZURE_REGION');
+AZURE_ENDPOINT_URL = "https://api.cognitive.microsofttranslator.com/translate";
+WORDS_HEADERS = os.getenv('WORDS_HEADERS')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
