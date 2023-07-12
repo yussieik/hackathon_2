@@ -1,0 +1,216 @@
+/* Containers */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+* {
+  font-size: 20px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Muli';
+}
+
+#section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(
+    to left, transparent, lightgrey
+  ), url("https://e0.pxfuel.com/wallpapers/734/556/desktop-wallpaper-world-language-background-elsetge.jpg");
+  background-repeat: repeat;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#arrow {
+    width: 200px;
+    height: auto;
+}
+#extra {
+    background-image: linear-gradient(
+    to left, transparent, lightgrey
+  ), url("https://e0.pxfuel.com/wallpapers/734/556/desktop-wallpaper-world-language-background-elsetge.jpg");
+  background-repeat: repeat;
+    height:100px;
+}
+
+
+.qrow {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  align-items: center; /* Center buttons vertically */
+  margin-bottom: 20px; /* Add spacing between rows */
+}
+
+.qrow .qlanguage-button {
+  margin: 5px;
+}
+
+.qword-row {
+  display: flex;
+  justify-content: center; /* Center qword horizontally */
+  align-items: center; /* Center qword vertically */
+}
+
+.question-container {
+  margin: 0px 20px;
+  border: 5px solid black;
+  border-radius: 30px;
+  width: 70%; /* Make the container wider */
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.answer-container {
+  margin: 0px 20px;
+  border: 5px solid black;
+  border-radius: 30px;
+  width: 70%; /* Make the container wider */
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.arow {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  align-items: center; /* Center buttons vertically */
+  margin-bottom: 20px; /* Add spacing between rows */
+}
+
+.arow .alanguage-button {
+  margin: 5px;
+}
+
+.input-row {
+  display: flex;
+  justify-content: center; /* Center input box horizontally */
+  align-items: center; /* Center input box vertically */
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button.qactive {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+button.aactive {
+  background-color: #00ff00;
+  color: #fff;
+}
+
+/* Input */
+input[type="text"] {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  text-align: center; /* Center text input */
+}
+
+/* Submit Button */
+/* Submit Button */
+#submit {
+display: block;
+margin: 0 auto; /* Center horizontally */
+margin-top: 20px;
+padding: 10px 20px;
+background-color: #0000ff;
+color: #fff;
+border: none;
+border-radius: 50px;
+cursor: pointer;
+height: 100px;
+width: 200px;
+font-size: 40px;
+}
+
+#userGuess {
+  height: 100px;
+  width: 500px;
+  font-size: 50px;
+}
+
+
+/* QWord */
+#qword, .label {
+  background-color: rgb(201, 201, 201);
+  padding: 0px 20px;
+  border-radius: 20px;
+  font-size: 36px; /* Adjust the font size as desired */
+  text-align: center; /* Center the text horizontally */
+  margin: 5px;
+}
+
+#correction {
+  font-size: 30px;
+  background-color: rgb(108, 223, 108);
+  position: relative;
+  padding: 5px 0;
+  margin: 10px;
+  text-align: center;
+  border-radius: 20px;
+  display:none;
+}
+
+
+#qword {
+  font-size: 78px
+}
+
+#stat-section, #game-section {
+  flex-basis: 100%; /* Take full width */
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+#stat-section {
+  background-color: turquoise;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.stat-div {
+  background-color: turquoise;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.stat{
+  vertical-align: middle;
+}
+
+button:hover, #submit:hover {
+    background-color:turquoise;
+}

@@ -84,16 +84,20 @@ def stat_view(request):
                     scores[from_lang][to_lang]['percentage'] = round(known_count / (known_count + unknown_count) * 100)
 
                     # difficulty
-                    scores[from_lang][to_lang]['hardest'] = all_words.aggregate(min_value=Min('difficulty'))['min_value']
+                    hardest_num = all_words.aggregate(min_value=Min('difficulty'))['min_value']
+                    hardest_word = convert_difficulty(str(hardest_num))
+                    print(hardest_word)
+                    scores[from_lang][to_lang]['hardest'] = hardest_word
+
         scores = replace_keys_and_values(scores, conversion)
         
         
-        print(scores)
         context = {"all_words": all_words,
                    "from_to": from_to,
                    "from_langs": from_langs,
                    "scores": scores,
-                   "total_score": total_score}
+                   "total_score": total_score,
+                }
         return render(request, "stats.html", context)
 
 # convert scores to full words:
@@ -105,6 +109,17 @@ def replace_keys_and_values(data, conversion):
     else:
         return conversion.get(data, data)
 
+# convert number difficulty to words:
+def convert_difficulty(number):
+    number_conversion = {
+        "7": "Super Easy",
+        "6": "Easy",
+        "5": "Medium",
+        "4": "Hard",
+        "3": "Expert",
+        "2": "Insane",
+        "1": "Word Master"}
+    return number_conversion[number]
 
 def create_word(request):
     if request.method == "POST":

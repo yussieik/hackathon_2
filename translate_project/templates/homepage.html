@@ -1,100 +1,32 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<style>
-    body {
-        background-color: #f4f4f4;
-        font-family: Arial, sans-serif;
-    }
-
-    .icontainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-
-    .game-section {
-        background-color: #fff;
-        padding: 40px;
-        text-align: center;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-
-    h1 {
-        color: #333;
-        font-size: 36px;
-        margin-bottom: 20px;
-    }
-
-    p {
-        color: #666;
-        font-size: 18px;
-        margin-bottom: 30px;
-    }
-
-    .point-system {
-        text-align: center;
-        margin-top: 40px;
-    }
-
-    h2 {
-        color: #333;
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    ul {
-        list-style-type: none;
-        padding: 0;
-        margin-bottom: 30px;
-    }
-
-    li {
-        color: #666;
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-
-    .btn-play {
-        display: inline-block;
-        padding: 12px 20px;
-        background-color: #4caf50;
-        color: #fff;
-        font-size: 18px;
-        text-decoration: none;
-        border-radius: 4px;
-        transition: background-color 0.3s;
-    }
-
-    .btn-play:hover {
-        background-color: #45a049;
-    }
-</style>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}">
 
 <body>
     <div class="icontainer">
-        <section class="game-section">
-            <h1>Welcome to the Translation Game!</h1>
-            
-                <p>1. Choose Question Language</p>
-                <p>2. Choose Answer Language</p>
-                <p>3. Learn a new language!</p>
-            
-        </section>
-        <section class="point-system">
-            <h2>Point System</h2>
-            <ul>
-                <li>Correct translation: +10 points</li>
-                <li>Incorrect translation: -5 points</li>
-                <li>Streak of 5: +30 points and advance to next level</li>
-                <li>Wrong streak of 5: -20 points and revert to easier level</li>
-            </ul>
-            <a href="../game" class="btn-play">Let's Learn!</a>
-        </section>
+        <div id="box">
+            <section class="game-section">
+                <h1>Welcome to the Translation Game!</h1>
+                
+                    <p>1. Choose Question Language</p>
+                    <p>2. Choose Answer Language</p>
+                    <p>3. Learn a new language!</p>
+                
+            </section>
+            <section class="point-system">
+                <h2>Point System</h2>
+                <ul>
+                    <li>Correct translation: +10 points</li>
+                    <li>Incorrect translation: -5 points</li>
+                    <li>Streak of 5: +30 points and advance to next level</li>
+                    <li>Wrong streak of 5: -20 points and revert to easier level</li>
+                </ul>
+                <a href="../game" class="btn-play">Let's Learn!</a>
+            </section>
+        </div>
+        
     </div>
 </body>
 

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Muli';
+}
+
+nav .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+  .navbar {
+    background-color: #003366; /* Dark Blue */
+  }
+
+  .navbar-nav .nav-link {
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #FFD700; /* Gold */
+  }
+
