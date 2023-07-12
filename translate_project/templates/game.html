@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<style>
+/* Containers */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+* {
+  font-size: 20px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Muli';
+}
+
+#section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+
+
+.qrow {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  align-items: center; /* Center buttons vertically */
+  margin-bottom: 20px; /* Add spacing between rows */
+}
+
+.qrow .qlanguage-button {
+  margin: 5px;
+}
+
+.qword-row {
+  display: flex;
+  justify-content: center; /* Center qword horizontally */
+  align-items: center; /* Center qword vertically */
+}
+
+.question-container {
+  margin: 0px 20px;
+  border: 5px solid black;
+  border-radius: 30px;
+  width: 70%; /* Make the container wider */
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.answer-container {
+  margin: 0px 20px;
+  border: 5px solid black;
+  border-radius: 30px;
+  width: 70%; /* Make the container wider */
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.arow {
+  display: flex;
+  justify-content: center; /* Center buttons horizontally */
+  align-items: center; /* Center buttons vertically */
+  margin-bottom: 20px; /* Add spacing between rows */
+}
+
+.arow .alanguage-button {
+  margin: 5px;
+}
+
+.input-row {
+  display: flex;
+  justify-content: center; /* Center input box horizontally */
+  align-items: center; /* Center input box vertically */
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.qactive {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+button.aactive {
+  background-color: #00ff00;
+  color: #fff;
+}
+
+/* Input */
+input[type="text"] {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center; /* Center text input */
+}
+
+/* Submit Button */
+/* Submit Button */
+#submit {
+display: block;
+margin: 0 auto; /* Center horizontally */
+margin-top: 20px;
+padding: 10px 20px;
+background-color: #0000ff;
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+#userGuess {
+  height: 100px;
+  width: 500px;
+  font-size: 50px;
+}
+
+
+/* QWord */
+#qword, .label{
+  background-color: rgb(201, 201, 201);
+  padding: 0px 20px;
+  border-radius: 10px;
+  font-size: 36px; /* Adjust the font size as desired */
+  text-align: center; /* Center the text horizontally */
+  margin: 5px;
+}
+
+#qword {
+  font-size: 78px
+}
+
+#stat-section, #game-section {
+  flex-basis: 100%; /* Take full width */
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+
+<div id="section-container">
+  <section id="stat-section">
+    <p id="correct-count">Correct: 0/0</p>
+    <p id="streak">Streak: 0</p>
+    <p id="points">Points: 0</p>
+    <p id="level">Level: Super Easy</p>
+  </section>
+  
+  <section id="game-section">
+    <div class="container">
+      <div class="question-container">
+        <p class="label">Translate from this Language</p>
+        <div class="qrow">
+          <button class="qlanguage-button qactive" name="en">English</button>
+          <button class="qlanguage-button" name="he">עברית</button>
+          <button class="qlanguage-button" name="ru">русский</button>
+          <button class="qlanguage-button" name="fr">Français</button>
+          <button class="qlanguage-button" name="ar">عربي</button>
+        </div>
+        <div class="qword-row">
+          <p class="label">This Word:</p>
+          <p id="qword"></p>
+        </div>
+      </div>
+      
+      <div class="answer-container">
+        <p class="label">Into this Language</p>
+        <div class="arow">
+          <button class="alanguage-button" name="en">English</button>
+          <button class="alanguage-button aactive" name="he">עברית</button>
+          <button class="alanguage-button" name="ru">русский</button>
+          <button class="alanguage-button" name="fr">Français</button>
+          <button class="alanguage-button" name="ar">عربي</button>
+        </div>
+        <div class="input-row">
+          <input type="text" id="userGuess" placeholder="YOUR ANSWER...">
+        </div>
+      </div>
+      
+    </div>
+    <p id="correction" style="display: none"></p>
+    <form method="post">
+      {% csrf_token %}
+      {{word_form.as_p}}
+      <button id="submit" type="submit">Submit</button>
+    </form>
+  
+  </section>
+</div>
+
+
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script src="{% static 'game.js' %}"></script>
+
+{% endblock content %}

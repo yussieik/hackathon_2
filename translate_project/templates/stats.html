@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<style>
+
+  .stats-container {
+    background-color: #333;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .from-lang {
+    font-size: 22px;
+    font-weight: bold;
+    color: #FFD700; /* Gold */
+    margin-bottom: 10px;
+  }
+
+  .to-lang {
+    font-size: 18px;
+    color: #00FFFF; /* Cyan */
+    margin-bottom: 10px;
+  }
+
+  .score {
+    font-size: 16px;
+    color: #00FF00; /* Green */
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .word {
+    font-weight: bold;
+    color: #FF1493; /* Deep Pink */
+  }
+</style>
+
+
+<container>
+  <h1>{{ request.user|title }}'s Stats:</h1>
+  <h2>Overall Score: {{ total_score }}% - not too bad!</h2>
+
+  {% for from_lang, to_langs in scores.items %}
+  <div class="stats-container">
+    <h3 class="from-lang">Translating from {{ from_lang }}:</h3>
+
+    {% for to_lang, stats in to_langs.items %}
+    <div class="to-lang">
+      <h4>To {{ to_lang }}:</h4>
+      <p class="score">Score: {{ stats.percentage }}%</p>
+
+      <ul>
+        <li>
+          Words you know:
+          <ol>
+            {% for known_word in stats.known_words %}
+            <li>
+              <span class="word">{{ known_word.word }}</span> = {{ known_word.translation }}
+            </li>
+            {% endfor %}
+          </ol>
+        </li>
+        <li>
+          Words you don't know:
+          <ol>
+            {% for unknown_word in stats.unknown_words %}
+            <li>
+              <span class="word">{{ unknown_word.word }}</span> = {{ unknown_word.translation }}
+            </li>
+            {% endfor %}
+          </ol>
+        </li>
+      </ul>
+    </div>
+    {% endfor %}
+
+  </div>
+  {% endfor %}
+
+</container>
+
+{% endblock content %}
