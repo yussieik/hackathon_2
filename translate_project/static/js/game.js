@@ -209,7 +209,7 @@ const handleGuess = async (e) => {
         };
 
         // visual changes
-        document.querySelector("#correction").textContent = "Excellent! +5 points!";
+        document.querySelector("#correction").textContent = "Excellent! +10 points!";
         document.querySelector("#userGuess").value=''
         document.querySelector("#points").textContent = `Points: ${POINTS}`
         document.querySelector("#correct-count").textContent = `Correct: ${CORRECT_COUNT}/${CORRECT_COUNT+WRONG_COUNT} (${Math.round(CORRECT_COUNT/(CORRECT_COUNT+WRONG_COUNT)*100)}%)`
