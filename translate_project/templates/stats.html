@@ -37,7 +37,7 @@
               <ol>
                 {% for unknown_word in stats.unknown_words %}
                 <li>
-                  <span class="word">{{ unknown_word.word }}</span> = {{ unknown_word.translation }}
+                  <span class="word">{{ unknown_word.word }}</span> = {{ unknown_word.translation }}... you said "{{ unknown_word.user_guess }}"
                 </li>
                 {% endfor %}
               </ol>
