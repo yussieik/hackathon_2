@@ -1,0 +1,24 @@
+Hey Akiva,
+
+Just had a chance to review your Django project. Here's what stood out to me:
+
+- First off, your project structure and file organization are generally well done. But I've noticed that you're mixing the API app with a regular (not REST API) app in the same directory. It would be a good idea to separate them into different directories instead of creating separate view scripts for the API and regular functions in the same folder.
+
+- Great job with code readability and formatting. It seems you've adhered to the PEP 8 standards quite well, which makes your code easy to follow. Keep this up!
+
+- You've demonstrated a solid understanding of Django and Django REST Framework features, which is really commendable. Your small serializer was neat, and creating template tags is a cool touch!
+
+- Your database model `Word` is well defined overall, but it could use some validations. Adding these can help to ensure the data in your database is consistent and as expected.
+
+- Your structure of views and URLs are logically and clearly designed, which is quite impressive.
+
+- As for error handling and validation, I noticed there wasn't a score provided. Please remember that it's crucial to implement error handling and data validation to create robust and reliable applications.
+
+- Your project needs more substantial documentation. It's not enough just to have comments in your code. Proper documentation, including setup and usage instructions, will make your project much more accessible to others and even yourself in the future.
+
+- Finally, a heads up that you've added the `.env` file to your git repository. This is something you should avoid as it can potentially expose sensitive data. Instead, consider using environment variables for sensitive data and add the `.env` file to your `.gitignore`.
+
+Overall, your project is promising, and I can see you've put a lot of effort into it. Keep refining and improving, and remember, the devil's in the details.
+
+Best,
+Yossi
