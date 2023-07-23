@@ -1,0 +1,24 @@
+Hey Akiva,
+
+Just had a look at your Django project. Here's some feedback for you:
+
+- Your project structure and file organization are commendable. However, it's not quite ideal to mix the API app with a regular (not REST API) app in the same directory. Consider separating them into different directories. This will make your project more modular and easier to maintain in the future.
+
+- Your code readability and formatting are on point. You seem to have a good grip on the PEP 8 standards which makes your code easy to navigate.
+
+- Impressive usage of Django and Django REST Framework features! The fact that you're creating template tags caught my attention. Also, your serializer is nice and compact.
+
+- As for the database modeling, it's almost there. Your `Word` model is quite straightforward, but don't forget about validations. They'll help to ensure your data is accurate and consistent.
+
+- Views and URL design are well structured and logical. Great work there!
+
+- Your project could benefit from some additional error handling. Implementing try-except clauses where applicable will help your application to be more robust and user-friendly.
+
+- There's room for improvement in your documentation. It's not only about commenting your code but also about providing a clear and comprehensive overview of your project, including setup and usage instructions.
+
+- Lastly, remember to exclude sensitive files like `.env` from your Git repository. This is a common security best practice that you should stick to.
+
+In a nutshell, you've done a solid job so far. Keep refining your project, paying attention to these areas of feedback. Keep up the good work!
+
+Best,
+Yossi.
